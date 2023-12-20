@@ -12,7 +12,7 @@
 	"mounts": [
 		// Mounts the login details from the host machine to azcli works in the container
 		"type=bind,source=${env:HOME}${env:USERPROFILE}/.azure,target=/home/vscode/.azure"
-	  ]
+	  ],
 	
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -25,7 +25,15 @@
 	// "postCreateCommand": "uname -a",
 
 	// Configure tool-specific properties.
-	// "customizations": {},
+	 "customizations": {
+		"vscode": {
+			"extensions": [
+				"timonwong.shellcheck",
+				"ms-azuretools.vscode-docker",
+				"hashicorp.terraform"
+			]
+		}
+	 }
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
 	// "remoteUser": "root"
