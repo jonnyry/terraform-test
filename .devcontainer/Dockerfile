@@ -24,3 +24,14 @@ RUN apk add py3-pip \
 #
 # install az cli
 RUN pip install azure-cli
+
+
+#
+# install terraformer
+ARG TERRAFORMER_FILE="terraformer-azure-linux-amd64"
+ARG TERRAFORMER_URL="https://github.com/GoogleCloudPlatform/terraformer/releases/download/0.8.24/${TERRAFORMER_FILE}"
+
+## (force IPv4 as default IPv6 fails)
+RUN wget -4 "${TERRAFORMER_URL}" \ 
+    && chmod +x "${TERRAFORMER_FILE}" \
+    && sudo mv "${TERRAFORMER_FILE}" /usr/local/bin/terraformer
